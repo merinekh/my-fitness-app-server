@@ -54,4 +54,19 @@ router.put("/favorite", (req, res) => {
   }
 });
 
+// ==================Delete request for Favorite==========================================
+
+router.delete("/favorite", (req, res) => {
+  const readExercices = fs.readFileSync("./data/favorite.json");
+  let exercices = JSON.parse(readExercices);
+
+  const newFavorite = exercices.filter((element) => element.id !== req.body.id);
+  console.log(...newFavorite, ...exercices);
+
+  fs.writeFileSync("./data/favorite.json", JSON.stringify(newFavorite));
+  res.status(201).send("Exercice Deleted Thank You!");
+
+  // res.send("Deleted Thank You!");
+});
+
 module.exports = router;
