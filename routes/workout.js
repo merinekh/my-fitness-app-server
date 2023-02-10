@@ -20,6 +20,15 @@ router.get("/equipments", (req, res) => {
   // res.send(data);
 });
 
+// =========================create a GET route for equipment=========================================
+router.get("/favorite", (req, res) => {
+  const readList = fs.readFileSync("./data/favorite.json");
+  const list = JSON.parse(readList);
+
+  res.json(list);
+  // res.send(data);
+});
+
 // ==================create a POST request for new Video==========================================
 
 router.put("/favorite", (req, res) => {
