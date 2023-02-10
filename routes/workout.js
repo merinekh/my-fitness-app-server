@@ -56,15 +56,17 @@ router.put("/favorite", (req, res) => {
 
 // ==================Delete request for Favorite==========================================
 
-router.delete("/favorite", (req, res) => {
+router.delete("/favorite/:id", (req, res) => {
   const readExercices = fs.readFileSync("./data/favorite.json");
   let exercices = JSON.parse(readExercices);
 
-  const newFavorite = exercices.filter((element) => element.id !== req.body.id);
-  console.log(...newFavorite, ...exercices);
+  const newFavorite = exercices.filter(
+    (element) => element.id !== req.params.id
+  );
+  // console.log(...newFavorite, ...exercices);
 
   fs.writeFileSync("./data/favorite.json", JSON.stringify(newFavorite));
-  res.status(201).send("Exercice Deleted Thank You!");
+  res.send("Exercice Deleted Thank You!");
 
   // res.send("Deleted Thank You!");
 });
