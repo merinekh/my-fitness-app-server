@@ -1,1 +1,20 @@
-[{"username":"user1","password":"password1"},{"username":"user2","password":"password2"},{"username":"user3","password":"password3"}]
+[
+  {
+    "username": "user1",
+    "password": "password1",
+    "avatar": "https://i.pravatar.cc/150?img=3",
+    "name": "John Anderson",
+    "email": "johnC@gmail.com",
+    "location": "Toronto"
+  },
+  {
+    "username": "user2",
+    "password": "password2",
+    "avatar": "https://i.pravatar.cc/150?img=1",
+    "name": "Karen Smith",
+    "email": "karenCBA@gmail.com",
+    "location": "Montreal"
+  },
+  { "username": "user3", "password": "password3" },
+  { "username": "user12", "password": "password1" }
+]

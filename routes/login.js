@@ -12,8 +12,10 @@ router.post("/", (req, res) => {
   const user = users.find(
     (u) => u.username === username && u.password === password
   );
+  user.password = "UNAUTHORIZED";
+  console.log(user);
   if (user) {
-    res.status(200).send("Login Succesful");
+    res.status(200).send(user);
   } else {
     res.status(401).send("Username or password incorrect");
   }
@@ -32,7 +34,7 @@ router.put("/register", (req, res) => {
   } else {
     users.push({ username, password });
     fs.writeFileSync("./data/User.json", JSON.stringify(users));
-    res.status(200).send({ message: "Registration successful" });
+    res.status(200).send("Registration successful");
   }
 });
 
