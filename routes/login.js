@@ -13,7 +13,7 @@ router.post("/", (req, res) => {
     (u) => u.username === username && u.password === password
   );
   user.password = "UNAUTHORIZED";
-  console.log(user);
+  // console.log(user);
   if (user) {
     res.status(200).send(user);
   } else {

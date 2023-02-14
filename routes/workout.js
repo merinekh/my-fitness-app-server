@@ -29,9 +29,9 @@ router.get("/favorite", (req, res) => {
   // res.send(data);
 });
 
-// ==================create a POST request for new Video==========================================
+// ==================create a PUT request for new exercie==========================================
 
-router.put("/favorite", (req, res) => {
+router.post("/favorite/:id", (req, res) => {
   const readExercices = fs.readFileSync("./data/favorite.json");
   const exercices = JSON.parse(readExercices);
 
@@ -41,7 +41,7 @@ router.put("/favorite", (req, res) => {
       addFav = false;
     }
   });
-  console.log(addFav);
+  console.log(addFav, req.body);
 
   if (addFav) {
     exercices.push(req.body);
